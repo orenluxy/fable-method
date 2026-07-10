@@ -1,0 +1,10 @@
+{
+  "name": "fable-method",
+  "description": "The Fable Method: systematic unknowns-discovery workflow based on Thariq's 'A Field Guide to Fable'. Blindspot scanning, structured interviews, prototype-first, implementation notes with deviation tracking, and merge quiz gates.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Oren"
+  },
+  "homepage": "https://x.com/trq212/status/2073100352921215386",
+  "keywords": ["workflow", "unknowns", "blindspot", "planning", "quality"]
+}

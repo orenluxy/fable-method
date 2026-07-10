@@ -1,0 +1,13 @@
+{
+  "name": "fable-method-marketplace",
+  "owner": {
+    "name": "Oren"
+  },
+  "plugins": [
+    {
+      "name": "fable-method",
+      "source": ".",
+      "description": "Unknowns-discovery workflow: blindspot pass, interview, prototype-first, implementation notes, merge quiz."
+    }
+  ]
+}
