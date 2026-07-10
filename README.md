@@ -78,7 +78,7 @@ Fable Method attacks each quadrant with a specific, cheap technique — and **en
 
 ```
 claude
-> /plugin marketplace add <your-github-user>/fable-method
+> /plugin marketplace add orenluxy/fable-method
 > /plugin install fable-method@fable-method-marketplace
 ```
 
@@ -87,7 +87,7 @@ Update everywhere later with one `git push` + `/plugin update fable-method` per 
 ### Option B — Fallback installer (no plugin support)
 
 ```bash
-git clone https://github.com/<your-github-user>/fable-method.git
+git clone https://github.com/orenluxy/fable-method.git
 cd fable-method && bash scripts/install.sh
 ```
 
