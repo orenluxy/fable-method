@@ -32,7 +32,7 @@
 
 ```
 claude
-> /plugin marketplace add <your-github-user>/fable-method
+> /plugin marketplace add orenluxy/fable-method
 > /plugin install fable-method@fable-method-marketplace
 ```
 
