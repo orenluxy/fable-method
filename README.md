@@ -101,13 +101,13 @@ Each folder under `skills/` can be uploaded individually as a skill in claude.ai
 
 ```
 # New domain? Find what you don't know you don't know:
-/blindspot-pass connect my app to the Wolt Drive API — zero experience with it
+/blindspot-pass integrate Stripe webhooks into this app — zero experience with Stripe
 
 # Vague idea? Get interviewed instead of guessing:
-/interview-me I'm thinking about a smart alerting mechanism for restaurant owners
+/interview-me I'm thinking about adding real-time notifications to the app
 
 # Visual work? Extract your taste before writing real code:
-/prototype-first daily operator dashboard — mobile, RTL Hebrew
+/prototype-first admin dashboard for the analytics module — dark mode, mobile-first
 
 # Long session done? Prove you understand the diff before merging:
 /merge-quiz
