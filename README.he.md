@@ -1,5 +1,7 @@
 # Fable Method — שיטת עבודה לגילוי Unknowns
 
+[English README](README.md) · עברית
+
 מבוסס על ["A Field Guide to Fable"](https://x.com/trq212/status/2073100352921215386) של Thariq (Claude Code, Anthropic).
 
 **הרעיון במשפט:** המפה (הפרומפט שלך) אינה השטח (הקודבייס והאילוצים האמיתיים). הפער ביניהם הוא unknowns, ואיכות העבודה נחסמת ביכולת לגלות אותם בזול — לפני שהם יקרים.
