@@ -43,6 +43,7 @@ Core idea (from Thariq's "A Field Guide to Fable"): the map is not the territory
 - **Token discipline**: each technique must earn its cost. If a technique produced nothing the user didn't already know, note that and skip it next time for similar tasks.
 - **Model economy** (see model-economy skill): per-step model choice happens only via subagents. Delegate territory scanning to `territory-scout` (haiku) and change inventories to `report-builder` (sonnet). Judgment, interviews, quiz design and taste work stay on the main model — delegating those is false economy.
 - **Convergence guard** (see convergence-guard skill): 3 failed fix attempts on the same behavior, 5+ edits to the same file, or 3+ deviations in one subsystem = stop and replan, not another patch. If an external `stoploss` tool is on PATH, it is authoritative.
+- **Acceptance line**: before writing code, every feature plan states one machine-checkable command that proves it works — the feature's red→green verify, same as a bug gets. No acceptance line means the plan isn't done yet.
 
 ## Coexistence with the Superpowers plugin
 
