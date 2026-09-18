@@ -1,6 +1,6 @@
 ---
 name: full-audit
-description: Audit a whole repository in one pass — dispatch every applicable audit lane in parallel, prove the repo's own gates fail when they should, and return one evidence-backed report ranked by severity. Use when the user says "full audit", "audit this repo", "check the whole codebase", "תעשה אודיט מלא", or asks for a periodic proactive code review. Reports only; never fixes. Also invocable as /full-audit.
+description: Audit a whole repository in one pass — dispatch every applicable audit lane in parallel, prove the repo's own gates fail when they should, and return one evidence-backed report ranked by severity. Use when the user says "full audit", "audit this repo", "check the whole codebase", "תעשה אודיט מלא", "אודיט לריפו", "תבדוק את כל הקוד", "סריקה מלאה", or asks for a periodic proactive code review. Reports only; never fixes. Also invocable as /full-audit.
 ---
 
 # Full Audit
@@ -19,7 +19,7 @@ Purpose: green tests and a green build are not evidence. A repository accumulate
    |---|---|---|
    | Security | always | **Invoke `claude-security` if installed** — do not hand-roll a security pass beside it. It computes its own rigor record and verifies findings adversarially. Absent it, run a security lane like the others. |
    | Over-engineering | always | **Invoke `ponytail-audit` if installed.** Otherwise skip and say so. |
-   | Gates | any test/lint/CI/check script exists | `prove-the-gates` (this plugin) |
+   | Gates | any test/lint/CI/check script exists | `prove-the-gates` (this plugin) — including **which checks nothing actually runs**: a check outside the test script, the push command and CI is a file, not a gate |
    | Architecture | always | duplicated business rules, layering shortcuts, dead code, framework-specific traps (e.g. conditional hooks), cross-directory imports that packaging misses |
    | Calculations | a data source exists | run the product's own query against the source and compare to what the app returns, metric by metric |
    | Content | user-facing text exists | against the project's own glossary/style rules if it has them; grammar of interpolated numbers; empty and zero states |
@@ -37,7 +37,7 @@ Purpose: green tests and a green build are not evidence. A repository accumulate
 
 4. **Tier the fleet** (see `model-economy`): mechanical inventory cheap, lanes mid, synthesis top. One agent per lane. Tell them explicitly that commit and push are forbidden — a single agent that commits sweeps every other agent's work into it.
 
-5. **Re-verify every blocker yourself, from source, before it enters the report.** This is not optional and it is not delegated. Lanes inflate severity and inherit wrong premises. Demote what does not meet the blocker test, and say you demoted it.
+5. **Re-verify every blocker yourself, from source, before it enters the report.** This is not optional and it is not delegated. Lanes inflate severity and inherit wrong premises. Demote what does not meet the blocker test, and say you demoted it. **A lane's "I proved it" is a claim like any other** — measured: a lane proved a gate reddens using a hand-injected sample, while every real one bypassed that gate; the gate had been dead for weeks and the audit recorded it as healthy.
 
 6. **Account for coverage.** Every top-level directory is either covered by a lane or set aside with a stated reason. "I checked the code" without the list is not a report.
 
