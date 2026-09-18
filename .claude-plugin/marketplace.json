@@ -8,6 +8,11 @@
       "name": "fable-method",
       "source": ".",
       "description": "Unknowns-discovery workflow: blindspot pass, interview, prototype-first, implementation notes, merge quiz."
+    },
+    {
+      "name": "full-audit",
+      "source": "./full-audit",
+      "description": "One command that audits a whole repository: dispatches every relevant audit lane in parallel, proves the repo's own gates actually fail, and returns one evidence-backed report. Reports only — never fixes."
     }
   ]
 }

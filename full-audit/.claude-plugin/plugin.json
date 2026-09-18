@@ -1,0 +1,8 @@
+{
+  "name": "full-audit",
+  "version": "1.0.0",
+  "description": "One command that audits a whole repository: dispatches every relevant audit lane in parallel, proves the repo's own gates actually fail, and returns one evidence-backed report. Reports only — never fixes.",
+  "author": {
+    "name": "Oren"
+  }
+}
