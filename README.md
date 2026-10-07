@@ -64,13 +64,13 @@ Fable Method attacks each quadrant with a specific, cheap technique — and **en
 | `territory-scout` | **haiku** | Cheap, wide, read-only codebase & web reconnaissance for blindspot passes |
 | `report-builder` | **sonnet** | Mechanical change inventories, diff summaries, and test-run reports for merge quizzes |
 
-### Hooks (3) — enforcement, not suggestions
+### Hooks (1) — enforcement, not suggestions
 
 | Hook | Event | What it does |
 |---|---|---|
-| `session-start.sh` | SessionStart | Injects the routing rules into every new session; auto-detects Superpowers and external stoploss tools and announces coexistence rules |
 | `posttool-guard.sh` | PostToolUse | Counts edits per file: **warning at the 5th edit** of the same file, **hard stop at the 8th** — the classic fix-loop signal. Defers automatically to a real `stoploss` binary if found on PATH |
-| `check-notes.sh` | Stop | Blocks session end if `IMPLEMENTATION_NOTES.md` still contains unresolved Open questions |
+
+Since 1.0.2 the plugin injects no text: the `SessionStart` (`session-start.sh`) and `Stop` (`check-notes.sh`) hooks are no longer registered. Text injected into every session competed with other plugins' injected text and cost tokens in every session, including the ones that never used it. The skills still load by their descriptions. The two scripts stay in `hooks/` for anyone who wants to register them by hand.
 
 ## Installation
 

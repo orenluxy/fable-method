@@ -16,8 +16,7 @@
 | `prototype-first` (skill) | 3-4 וריאציות HTML שונות באמת לפני קוד אמיתי | משימות ויזואליות / טעם |
 | `implementation-notes` (skill) | יומן Decisions / Deviations / Open questions | כל סשן מרובה-קבצים |
 | `merge-quiz` (skill) | דוח שינויים + מבחן הבנה כשער לפני merge | סוף סשן ארוך / production |
-| `SessionStart` hook | מזריק תזכורת ראוטינג קומפקטית לכל סשן חדש | אוטומטי |
-| `Stop` hook | חוסם סיום אם יש Open questions לא פתורים ב-IMPLEMENTATION_NOTES.md | אוטומטי |
+| הוקים מזריקים | הוסרו בגרסה 1.0.2 (`SessionStart`, `Stop`). הפלאגין לא מזריק טקסט. הסקילים נבחרים לפי התיאור שלהם | — |
 | `model-economy` (skill) | ניתוב כל שלב למודל הזול המתאים — דרך subagents בלבד | תכנון עבודה מרובת-שלבים |
 | `convergence-guard` (skill) | משמעת stoploss מובנית: זיהוי fix-loops, כלל 3 פסילות, עצירה-ותכנון-מחדש | דיבוג / מימוש |
 | `territory-scout` (agent, **haiku**) | סריקת קודבייס ו-web זולה עבור blindspot-pass | אוטומטי בהאצלה |
@@ -59,14 +58,13 @@ bash scripts/install.sh
 
 ### העיקרון: רוב הזמן אתה לא עושה כלום
 
-אחרי ההתקנה, ה-hook של SessionStart מזריק את חוקי הראוטינג לכל סשן חדש, וקלוד אמור לנתב לבד. אתה לא צריך לזכור שמות של סקילים. הפעלה ידנית (`/blindspot-pass` וכו') היא override, לא ברירת המחדל.
+אחרי ההתקנה קלוד בוחר סקיל לפי התיאור שלו, בלי טקסט שמוזרק לכל סשן. אתה לא צריך לזכור שמות של סקילים. הפעלה ידנית (`/blindspot-pass` וכו') היא override, לא ברירת המחדל.
 
 ### מה קורה אוטומטית, בלי שתבקש
 
 - **תחילת סשן** — קלוד מקבל את עץ ההחלטה ואת סטטוס הזיהוי (superpowers? stoploss?).
 - **תוך כדי עבודה** — בכל סשן מרובה-קבצים קלוד אמור לפתוח `IMPLEMENTATION_NOTES.md` ולתעד החלטות וסטיות. אם הוא לא עשה את זה — זו תקלה, תגיד לו "implementation notes".
 - **עריכה חמישית לאותו קובץ** — אזהרת convergence מוזרקת אוטומטית. **עריכה שמינית** — חסימה: קלוד חייב לעצור, לסכם מה נכשל ולהציע 2 אסטרטגיות חלופיות.
-- **סוף סשן** — אם נשארו Open questions לא פתורים ב-notes, ה-Stop hook מכריח את קלוד להציף אותם לפניך במקום לסיים בשקט.
 
 ### תסריטי שימוש לפי סוג משימה
 
@@ -106,7 +104,7 @@ bash scripts/install.sh
 1. נוצר אוטומטית בתחילת מימוש (או תבקש "פתח implementation notes").
 2. מתמלא תוך כדי: Decisions / Deviations / Open questions.
 3. **הסיגנל החשוב**: 3+ deviations באותו subsystem = התוכנית שגויה. קלוד אמור לעצור לבד; אם לא — עצור אותו אתה.
-4. לפני merge: ה-quiz שואב ממנו, וה-Stop hook לא נותן לסיים עם Open questions פתוחים.
+4. לפני merge: ה-quiz שואב ממנו.
 5. אחרי merge: מחק או ארכב. הקובץ הוא per-task, לא יומן מצטבר. מומלץ להוסיף אותו + `.fable-session/` ל-`.gitignore`.
 
 ### פקודות מהירות (invocation ידני)
@@ -131,7 +129,7 @@ bash scripts/install.sh
 הפלאגין **עצמאי לחלוטין**. superpowers ו-stoploss אינם dependencies:
 
 - **בלי superpowers**: הסקילים של fable-method מכסים את כל הזרימה בעצמם.
-- **עם superpowers**: זיהוי אוטומטי ב-SessionStart + כללי קדימות — superpowers מנהל את ה"איך" (תכנון/ביצוע), fable-method את ה-unknowns (לפני) ואת שער ה-merge (אחרי). לעולם לא brainstorming + blindspot-pass על אותה משימה.
+- **עם superpowers**: כללי קדימות — superpowers מנהל את ה"איך" (תכנון/ביצוע), fable-method את ה-unknowns (לפני) ואת שער ה-merge (אחרי). לעולם לא brainstorming + blindspot-pass על אותה משימה.
 - **בלי stoploss**: ה-convergence-guard המובנה + ה-PostToolUse hook אוכפים ספי fix-loop.
 - **עם stoploss** (על ה-PATH): הוא הסמכות — ה-hook המובנה מזהה אותו ומתפנה, והסקילים מריצים `stoploss report` בנקודות ביקורת.
 
